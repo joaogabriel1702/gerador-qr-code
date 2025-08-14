@@ -19,6 +19,7 @@
   "homepage": "https://github.com/joaogabriel1702/gerador-qr-code#readme",
   "description": "kit de utilidades para e-commerce",
   "dependencies": {
-    "prompt": "^1.3.0"
+    "prompt": "^1.3.0",
+    "qrcode-terminal": "^0.12.0"
   }
 }
