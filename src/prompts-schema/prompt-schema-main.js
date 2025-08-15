@@ -1,4 +1,4 @@
-const mainPrompt = [
+const promptSchemaMain = [
     {
         name: "select",
         description: "Escoha a ferramenta (1 - QRCODE ou (2 - PASSSWORD",
@@ -8,4 +8,4 @@ const mainPrompt = [
     }
 ]
 
-export default mainPrompt
+export default promptSchemaMain

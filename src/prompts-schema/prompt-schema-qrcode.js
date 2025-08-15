@@ -1,4 +1,4 @@
-const promptQRCode = [
+const promptSchemaQRCode = [
     {
         name: "link",
         description: "Digite o link para gerar o QR Code",
@@ -12,4 +12,4 @@ const promptQRCode = [
     }
 ];
 
-export default promptQRCode
+export default promptSchemaQRCode
