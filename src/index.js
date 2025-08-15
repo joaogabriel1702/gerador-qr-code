@@ -1,15 +1,33 @@
-import prompt from "prompt"
-import promptSchemaMain from "./prompts-schema/prompt-schema-main.js"
-import createQRCode from "./services/qr-code/create.js"
-import createPassword from "./services/password/create.js"
+import prompt from "prompt";
+import promptSchemaMain from "./prompts-schema/prompt-schema-main.js";
+import createQRCode from "./services/qr-code/create.js";
+import createPassword from "./services/password/create.js";
 
-async function main() {
-    prompt.get(promptSchemaMain, async (err, choose) => {
-        if(choose.select == 1) await createQRCode()
-        if(choose.select == 2) await createPassword()
-    })
+async function handleSelection(selection) {
+  const actions = {
+    1: createQRCode,
+    2: createPassword,
+  };
 
-    prompt.start()
+  const action = actions[selection];
+  
+  if (action) {
+    await action();
+  } else {
+    console.log("Opção inválida. Tente novamente.");
+  }
 }
 
-main()
+async function main() {
+  try {
+    prompt.start();
+
+    const { select } = await prompt.get(promptSchemaMain);
+    await handleSelection(select);
+
+  } catch (error) {
+    console.error("Erro:", error.message || error);
+  }
+}
+
+main();
